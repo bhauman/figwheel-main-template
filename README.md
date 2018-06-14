@@ -13,11 +13,12 @@ Already an expert? Can't stand to read more information? Just use one of the fol
 
 ```shell
 clj -A:new figwheel-main hello-world.app --reagent # or --rum, --om, --react
-```		
+```
+
 or
 
 ```shell
-lein new figwheel-main hello-world.app --reagent # or --rum, --om, --react
+lein new figwheel-main hello-world.app -- --reagent # or --rum, --om, --react
 ```
 
 ## Overview
