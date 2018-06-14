@@ -83,8 +83,9 @@
 
 (defn figwheel-main
   "Takes a name and possibly a single framework option with the form
-  --framework and any number of attribute options of the form +attribute
-  and produces a ClojureScript + Figwheel Main template.
+  --framework and any number of attribute options of the form
+  +attribute and produces a minimal ClojureScript project that
+  includes Figwheel Main tooling
 
   The framework options are:
      --react   which adds a minimal React/Sablono application in core.cljs
@@ -97,9 +98,9 @@
      +lein        which generates a project.clj (a default when used with lein)
      +bare-index  which generates an index without any annoyingly helpful content
 
-  Only one option framework option can be specified at a time. If no
+  Only one **framework** option can be` specified at a time. If no
   framework option is specified, nothing but a print statment is added
-  in core.cljs"
+  to the generated ClojureScript code."
   [name & opts]
   (do
     (when (#{"figwheel" "cljs"} name)

@@ -4,7 +4,7 @@ A Leinigen template to get started with [Figwheel](https://github.com/bhauman/le
 
 ## Usage
 
-Make sure you have either [leiningen](https://github.com/technomancy/leiningen). or [clj-new](https://github.com/seancorfield/clj-new) installed
+Make sure you have either [Leiningen](https://github.com/technomancy/leiningen) or [clj-new](https://github.com/seancorfield/clj-new) installed
 
 #### Using lein
 
@@ -20,9 +20,10 @@ Make sure you have installed `clj-new` as detailed [here](https://github.com/sea
 
 ### Options
 
-Takes a **name** and possibly a single **framework** option with the form
-`--framework` and any number of **attribute** options of the form `+attribute`
-and produces a ClojureScript + Figwheel Main template.
+Takes a **name** and possibly a single **framework** option with the
+form `--framework` and any number of **attribute** options of the form
+`+attribute` and produces a minimal ClojureScript project that
+includes Figwheel Main tooling
 
 The framework options are:
 
