@@ -144,6 +144,13 @@ To create a production build:
 
 	lein clean
     lein fig:min
+	
+	
+## Questions?
+
+See the [figwheel.main README](https://github.com/bhauman/lein-figwheel/tree/master/figwheel-main) 
+
+Hit me up on the [Clojurians Slack](http://clojurians.net/) on the #figwheel.main channel. 
 
 ## License
 
