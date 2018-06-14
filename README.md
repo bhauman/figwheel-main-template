@@ -1,4 +1,4 @@
-# figwheel-main-template
+# figwheel.main template
 
 A template generator that will produce a minimal ClojureScript project
 that includes
@@ -79,7 +79,9 @@ Examples:
 
     clj -A:new figwheel-main hello-world.app --react +bare-index +lein
 
-## Usage with CLI tools
+# Compiling the generated project
+
+### With a CLI tools project
 
 To get an interactive development environment change into the project
 root (the directory just created) and execute:
@@ -109,7 +111,7 @@ To create a production build:
 	rm -rf target/public
     clojure -A:fig:min
 	
-## Usage with Leiningen
+### With Leiningen based project
 
 To get an interactive development environment change into the project
 root (the directory just created) and execute:
