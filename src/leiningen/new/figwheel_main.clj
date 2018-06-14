@@ -12,7 +12,7 @@
 
 (def framework-opts (set (map #(str "--" %) supported-frameworks)))
 
-(def supported-attributes #{"lein" "bare-index"})
+(def supported-attributes #{"lein" "bare-index" "deps"})
 
 (def attribute-opts (set (map #(str "+" %) supported-attributes)))
 
@@ -63,12 +63,17 @@
                            ::error true})))))
           {} opts))
 
+(defn in-clj? []
+  (resolve 'clj-new.helpers/create))
+
 (defn opts-data [n {:keys [framework attributes]}]
   (let [to-att #(keyword (str (name %) "?"))
         main-ns (multi-segment (sanitize-ns n))]
     (cond-> {:raw-name n
              :name (project-name n)
              :namespace main-ns
+             :lein? (not (in-clj?))
+             :deps? (in-clj?)
              :nested-dirs (name-to-path main-ns)}
       framework (assoc (to-att framework) true)
       (not-empty attributes) (#(reduce
@@ -88,8 +93,9 @@
      --om      which adds a minimal Om application in core.cljs
 
   The attribute options are:
-     +lein        which generates a project.clj
-     +bare-index  which generates an index without any helpful content
+     +deps        which generates a deps.edn (a default when used with clj-new)
+     +lein        which generates a project.clj (a default when used with lein)
+     +bare-index  which generates an index without any annoyingly helpful content
 
   Only one option framework option can be specified at a time. If no
   framework option is specified, nothing but a print statment is added
@@ -105,9 +111,7 @@
     (try
       (let [parsed-opts (parse-opts opts)
             data (opts-data name parsed-opts)
-            _ (clojure.pprint/pprint data)
             base-files [["README.md" (render "README.md" data)]
-                        ["deps.edn" (render "deps.edn" data)]
                         ["dev.cljs.edn" (render "dev.cljs.edn" data)]
                         ["src/{{nested-dirs}}.cljs" (render "core.cljs" data)]
                         ["resources/public/css/style.css" (render "style.css" data)]
@@ -115,6 +119,8 @@
             files (cond-> base-files
                     (:lein? data)
                     (conj ["project.clj" (render "project.clj" data)])
+                    (:deps? data)
+                    (conj ["deps.edn" (render "deps.edn" data)])
                     (not (:bare-index? data))
                     (conj ["resources/public/index.html" (render "index.html" data)])
                     (:bare-index? data)

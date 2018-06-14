@@ -4,13 +4,13 @@ A Leinigen template to get started with [Figwheel](https://github.com/bhauman/le
 
 ## Usage
 
-Make sure you have ether [leiningen](https://github.com/technomancy/leiningen). or [clj-new](https://github.com/seancorfield/clj-new) installed
+Make sure you have either [leiningen](https://github.com/technomancy/leiningen). or [clj-new](https://github.com/seancorfield/clj-new) installed
 
 #### Using lein
 
-Make sure you have the [latest version of leiningen installed](https://github.com/technomancy/leiningen#installation).
+Make sure you have the [latest version of Leiningen installed](https://github.com/technomancy/leiningen#installation).
 
-    lein new figwheel-main hello-world.app -- --reagent +lein
+    lein new figwheel-main hello-world.app -- --reagent
 	
 #### Using clj-new
 
@@ -33,18 +33,19 @@ The framework options are:
 
 The attribute options are:
 
-     +lein        which generates a project.clj
+     +deps        which generates a deps.edn (a default when used with clj-new)
+     +lein        which generates a project.clj (a default when used with lein)
      +bare-index  which generates an index without any annoyingly helpful content
 
 Only one **framework** option can be specified at a time. If no
 framework option is specified, nothing but a print statment is added
-in core.clj
+to the generated ClojureScript code.
 
 Examples:
 
-	lein new figwheel-main hello-world.app -- --react +lein
+	lein new figwheel-main hello-world.app -- --react +deps
 
-    clj -A:new figwheel-main hello-world.app --react +bare-index
+    clj -A:new figwheel-main hello-world.app --react +bare-index +lein
 
 ## Usage with CLI tools
 
