@@ -1,6 +1,9 @@
 # figwheel-template
 
-A Leinigen template to get started with [Figwheel](https://github.com/bhauman/lein-figwheel/figwheel-main).
+A template generator that will produce a minimal ClojureScript project
+that includes
+[figwheel.main](https://github.com/bhauman/lein-figwheel/figwheel-main)
+tooling.
 
 ## Usage
 
