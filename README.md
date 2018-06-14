@@ -5,8 +5,6 @@ that includes
 [figwheel.main](https://github.com/bhauman/lein-figwheel/figwheel-main)
 tooling.
 
-![Figwheel heads up example](https://s3.amazonaws.com/bhauman-blog-images/figwheel_image.png)
-
 ## Abridged Usage Examples
 
 Already an expert? Can't stand to read more information? Just use one of the following commands:

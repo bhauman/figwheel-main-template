@@ -1,1 +1,3 @@
 theme: jekyll-theme-minimal
+show_downloads: false
+logo: https://s3.amazonaws.com/bhauman-blog-images/figwheel_image.png
