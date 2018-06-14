@@ -7,17 +7,20 @@ tooling.
 
 ## Usage
 
-Make sure you have either [Leiningen](https://github.com/technomancy/leiningen) or [clj-new](https://github.com/seancorfield/clj-new) installed
+Make sure you have either
+[Leiningen](https://github.com/technomancy/leiningen) or
+[clj-new](https://github.com/seancorfield/clj-new) installed
 
 #### Using lein
 
-Make sure you have the [latest version of Leiningen installed](https://github.com/technomancy/leiningen#installation).
+Make sure you have the
+[latest version of Leiningen installed](https://github.com/technomancy/leiningen#installation).
 
     lein new figwheel-main hello-world.app -- --reagent
 	
 #### Using clj-new
 
-Make sure you have installed `clj-new` as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
+Ensure you have installed `clj-new` as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
 	
 	clj -A:new figwheel-main hello-world.app --reagent
 
@@ -56,7 +59,7 @@ Examples:
 To get an interactive development environment change into the project
 root (the directory just created) and execute:
 
-    clojure -Afig:build
+    clojure -A:fig:build
 	
 After the compilation process is complete, and a browser has popped loaded the
 compiled project in your browser you will get a ClojureScript REPL
@@ -70,7 +73,7 @@ and you should see an alert in the browser window.
 
 You can also supply argumetns to `figwheel.main` like so:
 
-	clojure -Afig -b dev -r
+	clojure -A:fig -b dev -r
 
 To clean all compiled files:
 
@@ -79,7 +82,7 @@ To clean all compiled files:
 To create a production build:
 
 	rm -rf target/public
-    clojure -Afig:min
+    clojure -A:fig:min
 	
 ## Usage with Leiningen
 

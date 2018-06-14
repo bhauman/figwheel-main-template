@@ -75,7 +75,10 @@
              :lein? (not (in-clj?))
              :deps? (in-clj?)
              :nested-dirs (name-to-path main-ns)}
-      framework (assoc (to-att framework) true)
+      framework
+      (->
+       (assoc (to-att :framework) true)
+       (assoc (to-att framework) true))
       (not-empty attributes) (#(reduce
                                 (fn [accum att]
                                   (assoc accum (to-att att) true))
@@ -122,16 +125,18 @@
                     (conj ["project.clj" (render "project.clj" data)])
                     (:deps? data)
                     (conj ["deps.edn" (render "deps.edn" data)])
-                    (not (:bare-index? data))
+                    (and (not (:bare-index? data))
+                         (not (:framework? data)))
                     (conj ["resources/public/index.html" (render "index.html" data)])
-                    (:bare-index? data)
+                    (or (:bare-index? data)
+                        (:framework? data))
                     (conj ["resources/public/index.html" (render "bare-index.html" data)]))]
         (main/info (format (str "Generating fresh figwheel-main project.\n"
                                 "   -->  To get started: Change into the '%s' directory and run '%s'\n")
                            (:name data)
-                           (if (:lein? data)
-                             "lein fig:build"
-                             "clojure -Afig:build")))
+                           (if (:deps? data)
+                             "clojure -A:fig:build"
+                             "lein fig:build")))
         (apply ->files data files)
         ;; ensure target directory
         (.mkdirs (io/file (:name data) "target" "public")))
