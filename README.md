@@ -1,15 +1,41 @@
-# figwheel-template
+# figwheel-main-template
 
 A template generator that will produce a minimal ClojureScript project
 that includes
 [figwheel.main](https://github.com/bhauman/lein-figwheel/figwheel-main)
 tooling.
 
+![Figwheel heads up example](https://s3.amazonaws.com/bhauman-blog-images/figwheel_image.png)
+
+## Abridged Usage Examples
+
+Already an expert? Can't stand to read more information? Just use one of the following commands:
+
+```shell
+clj -A:new figwheel-main hello-world.app --reagent # or --rum, --om, --react
+```		
+or
+
+```shell
+lein new figwheel-main hello-world.app --reagent # or --rum, --om, --react
+```
+
+## Overview
+
+The `figwheel-main` template is intended to get you up and running
+with a no-frills ClojureScript project initialized with the
+ClojureScript React framework of your choosing. It is intended to work
+equally well with
+[Leiningen](https://github.com/technomancy/leiningen) or
+[clj-new](https://github.com/seancorfield/clj-new).
+
 ## Usage
 
-Make sure you have either
-[Leiningen](https://github.com/technomancy/leiningen) or
-[clj-new](https://github.com/seancorfield/clj-new) installed
+#### Using clj-new
+
+Ensure you have installed `clj-new` as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
+	
+	clj -A:new figwheel-main hello-world.app --reagent
 
 #### Using lein
 
@@ -17,12 +43,6 @@ Make sure you have the
 [latest version of Leiningen installed](https://github.com/technomancy/leiningen#installation).
 
     lein new figwheel-main hello-world.app -- --reagent
-	
-#### Using clj-new
-
-Ensure you have installed `clj-new` as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
-	
-	clj -A:new figwheel-main hello-world.app --reagent
 
 ### Options
 
@@ -30,6 +50,12 @@ Takes a **name** and possibly a single **framework** option with the
 form `--framework` and any number of **attribute** options of the form
 `+attribute` and produces a minimal ClojureScript project that
 includes Figwheel Main tooling
+
+The initial **name** option is intended to be the name of your initial
+project namespace. Here are some examples of valid project names:
+
+	hello.core
+	my.group/dominate.world
 
 The framework options are:
 
@@ -61,9 +87,9 @@ root (the directory just created) and execute:
 
     clojure -A:fig:build
 	
-After the compilation process is complete, and a browser has popped loaded the
-compiled project in your browser you will get a ClojureScript REPL
-prompt that is connected to the browser.
+After the compilation process is complete, and a browser has popped
+open the compiled project in your browser, you will get a ClojureScript
+REPL prompt that is connected to the browser.
 
 An easy way to verify this is:
 
@@ -71,7 +97,7 @@ An easy way to verify this is:
 
 and you should see an alert in the browser window.
 
-You can also supply argumetns to `figwheel.main` like so:
+You can also supply arguments to `figwheel.main` like so:
 
 	clojure -A:fig -b dev -r
 
@@ -91,9 +117,9 @@ root (the directory just created) and execute:
 
     lein fig:build
 	
-After the compilation process is complete, and a browser has popped loaded the
-compiled project in your browser you will get a ClojureScript REPL
-prompt that is connected to the browser.
+After the compilation process is complete, and a browser has popped
+open the compiled project in your browser, you will get a ClojureScript
+REPL prompt that is connected to the browser.	
 
 An easy way to verify this is:
 
@@ -101,7 +127,7 @@ An easy way to verify this is:
 
 and you should see an alert in the browser window.
 
-You can also supply argumetns to `figwheel.main` like so:
+You can also supply arguments to `figwheel.main` like so:
 
 	lein fig -- -b dev -r
 
