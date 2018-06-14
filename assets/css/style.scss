@@ -6,10 +6,16 @@
 
 header {
     position: relative;
+    width: 200px;
 }
 
 header h1 {
     display: none;
+    width:600px;
+}
+
+a:focus {
+    font-weight:normal;
 }
 
 footer {
