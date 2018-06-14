@@ -3,6 +3,15 @@
 
 @import "{{ site.theme }}";
 
+
+header {
+    position: relative;
+}
+
+footer {
+    display: none;
+}
+
 .hithere {
     color:red;
 }
