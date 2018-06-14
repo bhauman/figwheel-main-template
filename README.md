@@ -32,7 +32,11 @@ equally well with
 
 #### Using clj-new
 
-Ensure you have installed `clj-new` as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
+Make sure you have
+[installed the Clojure CLI tools](https://clojure.org/guides/getting_started#_clojure_installer_and_cli_tools)
+and are running the latest version.
+
+Also, ensure you have installed [clj-new](https://github.com/seancorfield/clj-new) as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
 	
 	clj -A:new figwheel-main hello-world.app --reagent
 
