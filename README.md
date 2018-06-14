@@ -10,13 +10,13 @@ Make sure you have ether [leiningen](https://github.com/technomancy/leiningen). 
 
 Make sure you have the [latest version of leiningen installed](https://github.com/technomancy/leiningen#installation).
 
-    lein new figwheel-main hello-world -- --reagent +lein
+    lein new figwheel-main hello-world.app -- --reagent +lein
 	
 #### Using clj-new
 
 Make sure you have installed `clj-new` as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
 	
-	clj -A:new figwheel-main hello-world.core --reagent
+	clj -A:new figwheel-main hello-world.app --reagent
 
 ### Options
 
@@ -42,9 +42,9 @@ in core.clj
 
 Examples:
 
-	lein new figwheel-main hello.app -- --react +lein
+	lein new figwheel-main hello-world.app -- --react +lein
 
-    clj -A:new figwheel-main hello.app --react +bare-index
+    clj -A:new figwheel-main hello-world.app --react +bare-index
 
 ## Usage with CLI tools
 
