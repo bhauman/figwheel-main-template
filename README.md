@@ -16,7 +16,7 @@ Make sure you have the [latest version of leiningen installed](https://github.co
 
 Make sure you have installed `clj-new` as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
 	
-	clj -A:new figwheel-main hello-world -- --reagent
+	clj -A:new figwheel-main hello-world.core --reagent
 
 ### Options
 
@@ -40,23 +40,20 @@ Only one **framework** option can be specified at a time. If no
 framework option is specified, nothing but a print statment is added
 in core.clj
 
-Include the options using `--` to separate them from Leiningens
-options, like so
+Examples:
 
-    clj -A:new figwheel-main hello-world -- --react
+	lein new figwheel-main hello.app -- --react +lein
+
+    clj -A:new figwheel-main hello.app --react +bare-index
 
 ## Usage with CLI tools
 
-To get an interactive development environment run 
+To get an interactive development environment change into the project
+root (the directory just created) and execute:
 
-    clojure -Acljs:build
+    clojure -Afig:build
 	
-from the project root directory.
-
-Figwheel will now be running and will auto compile and send all
-changes to the browser without the need to reload.
-
-After the compilation process is complete, and you have loaded the
+After the compilation process is complete, and a browser has popped loaded the
 compiled project in your browser you will get a ClojureScript REPL
 prompt that is connected to the browser.
 
@@ -66,14 +63,48 @@ An easy way to verify this is:
 
 and you should see an alert in the browser window.
 
+You can also supply argumetns to `figwheel.main` like so:
+
+	clojure -Afig -b dev -r
+
 To clean all compiled files:
 
     rm -rf target/public
 
-To create a production build run:
+To create a production build:
 
 	rm -rf target/public
-    clojure -Acljs:min
+    clojure -Afig:min
+	
+## Usage with Leiningen
+
+To get an interactive development environment change into the project
+root (the directory just created) and execute:
+
+    lein fig:build
+	
+After the compilation process is complete, and a browser has popped loaded the
+compiled project in your browser you will get a ClojureScript REPL
+prompt that is connected to the browser.
+
+An easy way to verify this is:
+
+    cljs.user=> (js/alert "Am I connected?")
+
+and you should see an alert in the browser window.
+
+You can also supply argumetns to `figwheel.main` like so:
+
+	lein fig -- -b dev -r
+
+To clean all compiled files:
+
+	lein clean
+
+To create a production build:
+
+	lein clean
+    lein fig:min
 
 ## License
 
