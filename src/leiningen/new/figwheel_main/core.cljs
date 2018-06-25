@@ -1,4 +1,4 @@
-(ns {{namespace}}
+(ns ^:figwheel-hooks {{namespace}}
     (:require {{#react?}}[react]
               [react-dom]
               [sablono.core :as sab :include-macros true]{{/react?}}{{#om?}}[om.core :as om :include-macros true]
@@ -49,7 +49,8 @@
            (. js/document (getElementById "app")))
 {{/rum?}}
 
-(defn on-js-reload []
+;; specify reload hook with ^;after-load metadata
+(defn ^:after-load on-reload []
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
   ;; (swap! app-state update-in [:__figwheel_counter] inc)
