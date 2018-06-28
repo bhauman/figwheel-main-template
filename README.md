@@ -7,7 +7,7 @@ tooling.
 
 ## Abridged Usage Examples
 
-Already an expert? Can't stand to read more information? Just use one of the following commands:
+Already an expert? Can't stand to read more information? Assuming you have [lein](https://github.com/technomancy/leiningen) or [clj-new](https://github.com/seancorfield/clj-new) installed, you can use one of the following commands:
 
 ```shell
 clj -A:new figwheel-main hello-world.app --reagent # or --rum, --om, --react or nothing
