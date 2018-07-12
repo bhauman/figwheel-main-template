@@ -2,7 +2,7 @@
 
 A template generator that will produce a minimal ClojureScript project
 that includes
-[figwheel.main](https://github.com/bhauman/lein-figwheel/figwheel-main)
+[figwheel.main](https://github.com/bhauman/figwheel-main)
 tooling.
 
 ## Abridged Usage Examples
