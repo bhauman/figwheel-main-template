@@ -2,7 +2,7 @@
  :aliases {:fig {:extra-deps
                   {org.clojure/clojurescript {:mvn/version "1.10.238"}
                    com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
-                   com.bhauman/figwheel-main {:mvn/version "0.1.3"}{{#react?}}
+                   com.bhauman/figwheel-main {:mvn/version "0.1.5"}{{#react?}}
                    cljsjs/react {:mvn/version "15.6.1-1"}
                    cljsjs/react-dom {:mvn/version "15.6.1-1"}
                    sablono {:mvn/version "0.8.3"}{{/react?}}{{#reagent?}}
