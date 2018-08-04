@@ -7,7 +7,7 @@
   :min-lein-version "2.7.1"
 
   :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.10.238"]{{#react?}}
+                 [org.clojure/clojurescript "1.10.339"]{{#react?}}
                  [cljsjs/react "15.6.1-1"]
                  [cljsjs/react-dom "15.6.1-1"]
                  [sablono "0.8.3"]{{/react?}}{{#om?}}
