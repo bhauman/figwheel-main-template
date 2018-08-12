@@ -4,8 +4,6 @@
               [sablono.core :as sab :include-macros true]{{/react?}}{{#om?}}[om.core :as om :include-macros true]
               [om.dom :as dom :include-macros true]{{/om?}}{{#reagent?}}[reagent.core :as reagent :refer [atom]]{{/reagent?}}{{#rum?}}[rum.core :as rum]{{/rum?}}))
 
-(enable-console-print!)
-
 (println "This text is printed from src/{{namespace}}.cljs. Go ahead and edit it and see reloading in action.")
 
 ;; define your app data so that it doesn't get over-written on reload
