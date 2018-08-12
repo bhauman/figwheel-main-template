@@ -24,7 +24,7 @@
             "fig:build" ["trampoline" "run" "-m" "figwheel.main" "-b" "dev" "-r"]
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]}
 
-  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.1.5"]
+  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.1.7"]
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]]
                    :resource-paths ["target"]
                    ;; need to add the compliled assets to the :clean-targets
