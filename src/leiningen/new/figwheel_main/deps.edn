@@ -8,7 +8,6 @@
                    sablono {:mvn/version "0.8.3"}{{/react?}}{{#reagent?}}
                    reagent {:mvn/version "0.7.0"}{{/reagent?}}{{#rum?}}
                    rum {:mvn/version "0.11.2"}{{/rum?}}}
-                 :extra-paths ["resources" "target"]
-                 :main-opts ["-m" "figwheel.main"]}
+                 :extra-paths ["resources" "target"]}
            :build {:main-opts ["-m" "figwheel.main" "-b" "dev" "-r"]}
            :min   {:main-opts ["-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]}}}
