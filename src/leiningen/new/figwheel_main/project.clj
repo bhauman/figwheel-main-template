@@ -14,7 +14,8 @@
                  [cljsjs/react "15.6.1-1"]
                  [cljsjs/react-dom "15.6.1-1"]
                  [sablono "0.8.3"]
-                 [org.omcljs/om "1.0.0-alpha46"]{{/om?}}{{#reagent?}}
+                 [org.omcljs/om "1.0.0-alpha46"]{{/om?}}
+                 {{#reagent?}}
                  [reagent "0.7.0"]{{/reagent?}}{{#rum?}}
                  [rum "0.11.2"]{{/rum?}}]
 

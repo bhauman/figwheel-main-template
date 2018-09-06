@@ -66,12 +66,20 @@
 (defn in-clj? []
   (resolve 'clj-new.helpers/create))
 
+(defn test-runner-ns [main-ns]
+  (string/join "." [(first (string/split main-ns #"\.")) "test-runner"]))
+
+(test-runner-ns "hello.core")
+
 (defn opts-data [n {:keys [framework attributes]}]
   (let [to-att #(keyword (str (name %) "?"))
-        main-ns (multi-segment (sanitize-ns n))]
+        main-ns (multi-segment (sanitize-ns n))
+        test-run-ns (test-runner-ns main-ns)]
     (cond-> {:raw-name n
              :name (project-name n)
              :namespace main-ns
+             :test-runner-ns test-run-ns
+             :test-runner-dirs (name-to-path test-run-ns)
              :lein? (not (in-clj?))
              :deps? (in-clj?)
              :nested-dirs (name-to-path main-ns)}
@@ -117,9 +125,15 @@
             data (opts-data name parsed-opts)
             base-files [["README.md" (render "README.md" data)]
                         ["dev.cljs.edn" (render "dev.cljs.edn" data)]
+                        ["test.cljs.edn" (render "test.cljs.edn" data)]
                         ["src/{{nested-dirs}}.cljs" (render "core.cljs" data)]
                         ["resources/public/css/style.css" (render "style.css" data)]
-                        [".gitignore" (render "gitignore" data)]]
+                        ["resources/public/test.html" (render "test-page.html" data)]
+                        [".gitignore" (render "gitignore" data)]
+                        ["test/{{nested-dirs}}_test.cljs" (render "test.cljs" data)]
+                        ["test/{{test-runner-dirs}}.cljs" (render "test-runner.cljs" data)]
+                        ["test/{{test-runner-dirs}}.cljs" (render "test-runner.cljs" data)]
+                        ]
             files (cond-> base-files
                     (:lein? data)
                     (conj ["project.clj" (render "project.clj" data)])
