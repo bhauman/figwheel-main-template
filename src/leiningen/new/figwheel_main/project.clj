@@ -8,24 +8,27 @@
 
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.339"]{{#react?}}
-                 [cljsjs/react "15.6.1-1"]
-                 [cljsjs/react-dom "15.6.1-1"]
-                 [sablono "0.8.3"]{{/react?}}{{#om?}}
-                 [cljsjs/react "15.6.1-1"]
-                 [cljsjs/react-dom "15.6.1-1"]
-                 [sablono "0.8.3"]
-                 [org.omcljs/om "1.0.0-alpha46"]{{/om?}}
+                 [cljsjs/react "16.4.1-0"]
+                 [cljsjs/react-dom "16.4.1-0"]
+                 [cljsjs/create-react-class "15.6.3-1"]
+                 [sablono "0.8.4"]{{/react?}}{{#om?}}
+                 [cljsjs/react "16.4.1-0"]
+                 [cljsjs/react-dom "16.4.1-0"]
+                 [cljsjs/create-react-class "15.6.3-1"]
+                 [sablono "0.8.4"]
+                 [org.omcljs/om "1.0.0-beta4"]{{/om?}}
                  {{#reagent?}}
-                 [reagent "0.7.0"]{{/reagent?}}{{#rum?}}
+                 [reagent "0.8.1"]{{/reagent?}}{{#rum?}}
                  [rum "0.11.2"]{{/rum?}}]
 
   :source-paths ["src"]
 
   :aliases {"fig"       ["trampoline" "run" "-m" "figwheel.main"]
             "fig:build" ["trampoline" "run" "-m" "figwheel.main" "-b" "dev" "-r"]
-            "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]}
+            "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]
+            "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" {{test-runner-ns}}]}
 
-  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.1.7"]
+  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.1.9"]
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]]
                    :resource-paths ["target"]
                    ;; need to add the compliled assets to the :clean-targets
