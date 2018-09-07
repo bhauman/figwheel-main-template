@@ -69,8 +69,6 @@
 (defn test-runner-ns [main-ns]
   (string/join "." [(first (string/split main-ns #"\.")) "test-runner"]))
 
-(test-runner-ns "hello.core")
-
 (defn opts-data [n {:keys [framework attributes]}]
   (let [to-att #(keyword (str (name %) "?"))
         main-ns (multi-segment (sanitize-ns n))

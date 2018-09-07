@@ -161,9 +161,9 @@ or with `lein`:
 
 ## Questions?
 
-See the [figwheel.main README](https://github.com/bhauman/lein-figwheel/tree/master/figwheel-main) 
+See the [`figwheel.main` documentation](https://figwheel.org)
 
-Hit me up on the [Clojurians Slack](http://clojurians.net/) on the #figwheel.main channel. 
+Hit me up on the [Clojurians Slack](http://clojurians.net/) on the `#figwheel-main` channel. 
 
 ## License
 
