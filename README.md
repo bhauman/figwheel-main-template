@@ -144,8 +144,21 @@ To create a production build:
 
 	lein clean
     lein fig:min
+
+# Testing
+
+Your initial tests are in the `test` directory. You will have tests
+that are updated live with each file change if you open a tab to
+`http://locahost:9500/figwheel-extra-main/auto-testing`
+
+You can run your tests from the command line with:
+
+    clj -A:fig:test
 	
-	
+or with `lein`:
+
+    lein fig:test
+
 ## Questions?
 
 See the [figwheel.main README](https://github.com/bhauman/lein-figwheel/tree/master/figwheel-main) 
