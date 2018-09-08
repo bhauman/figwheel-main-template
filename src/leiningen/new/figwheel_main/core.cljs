@@ -63,14 +63,17 @@
 {{/rum?}}
 
 {{#framework?}}
+(defn mount-app-element []
+  (when-let [el (get-app-element)]
+    (mount el)))
+
 ;; conditionally start your application based on the presence of an "app" element
 ;; this is particularly helpful for testing this ns without launching the app
-(when-let [el (get-app-element)]
-  (mount el)){{/framework?}}
+(mount-app-element){{/framework?}}
 
 ;; specify reload hook with ^;after-load metadata
 (defn ^:after-load on-reload []{{#framework?}}
-  (mount (get-app-element)){{/framework?}}
+  (mount-app-element){{/framework?}}
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
   ;; (swap! app-state update-in [:__figwheel_counter] inc)
