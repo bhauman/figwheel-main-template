@@ -149,7 +149,7 @@ To create a production build:
 
 Your initial tests are in the `test` directory. You will have tests
 that are updated live with each file change if you open a tab to
-`http://locahost:9500/figwheel-extra-main/auto-testing`
+`http://localhost:9500/figwheel-extra-main/auto-testing`
 
 You can run your tests from the command line with:
 
