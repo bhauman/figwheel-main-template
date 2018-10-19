@@ -69,6 +69,9 @@
 (defn test-runner-ns [main-ns]
   (string/join "." [(first (string/split main-ns #"\.")) "test-runner"]))
 
+(defn windows? []
+  (.contains (string/lower-case (System/getProperty "os.name")) #_"mac" "windows"))
+
 (defn opts-data [n {:keys [framework attributes]}]
   (let [to-att #(keyword (str (name %) "?"))
         main-ns (multi-segment (sanitize-ns n))
@@ -80,6 +83,7 @@
              :test-runner-dirs (name-to-path test-run-ns)
              :lein? (not (in-clj?))
              :deps? (in-clj?)
+             :windows? (windows?)
              :nested-dirs (name-to-path main-ns)}
       framework
       (->
