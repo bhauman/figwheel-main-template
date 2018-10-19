@@ -12,7 +12,7 @@
    [reagent.core :as reagent :refer [atom]]{{/reagent?}}{{#rum?}}
    [rum.core :as rum]{{/rum?}}))
 
-(println "This text is printed from src/{{nested-dirs}}.cljs. Go ahead and edit it and see reloading in action.")
+(println "This text is printed from src/{{main-file-path}}.cljs. Go ahead and edit it and see reloading in action.")
 
 (defn multiply [a b] (* a b))
 {{#om?}}

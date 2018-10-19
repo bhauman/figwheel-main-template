@@ -84,6 +84,8 @@
              :lein? (not (in-clj?))
              :deps? (in-clj?)
              :windows? (windows?)
+             :main-file-path (-> (name-to-path main-ns)
+                                 (string/replace "\\" "/"))
              :nested-dirs (name-to-path main-ns)}
       framework
       (->
