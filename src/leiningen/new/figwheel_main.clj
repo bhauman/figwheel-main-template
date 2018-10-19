@@ -70,7 +70,7 @@
   (string/join "." [(first (string/split main-ns #"\.")) "test-runner"]))
 
 (defn windows? []
-  (.contains (string/lower-case (System/getProperty "os.name")) #_"mac" "windows"))
+  (.contains (string/lower-case (System/getProperty "os.name")) "windows"))
 
 (defn opts-data [n {:keys [framework attributes]}]
   (let [to-att #(keyword (str (name %) "?"))
@@ -126,6 +126,7 @@
       (let [parsed-opts (parse-opts opts)
             data (opts-data name parsed-opts)
             base-files [["README.md" (render "README.md" data)]
+                        ["figwheel-main.edn" (render "figwheel-main.edn" data)]
                         ["dev.cljs.edn" (render "dev.cljs.edn" data)]
                         ["test.cljs.edn" (render "test.cljs.edn" data)]
                         ["src/{{nested-dirs}}.cljs" (render "core.cljs" data)]
