@@ -29,7 +29,7 @@
 
   :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.1.9"]{{^windows?}}
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]{{/windows?}}]
-                   :resource-paths ["target"]
+                   {{#deps?}}:resource-paths ["target"]
                    ;; need to add the compliled assets to the :clean-targets
-                   :clean-targets ^{:protect false} ["target"]}})
+                   :clean-targets ^{:protect false} ["target"]{{/deps?}}}})
 
