@@ -10,13 +10,13 @@ tooling.
 Already an expert? Can't stand to read more information? Assuming you have [lein](https://github.com/technomancy/leiningen) or [clj-new](https://github.com/seancorfield/clj-new) installed, you can use one of the following commands:
 
 ```shell
-clj -A:new figwheel-main hello-world.app -- --reagent # or --rum, --om, --react or nothing
+clj -A:new figwheel-main hello-world-app -- --reagent # or --rum, --om, --react or nothing
 ```
 
 or
 
 ```shell
-lein new figwheel-main hello-world.app -- --reagent # or --rum, --om, --react or nothing
+lein new figwheel-main hello-world-app -- --reagent # or --rum, --om, --react or nothing
 ```
 
 ## Overview
@@ -38,14 +38,14 @@ and are running the latest version.
 
 Also, ensure you have installed [clj-new](https://github.com/seancorfield/clj-new) as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
 	
-	clj -A:new figwheel-main hello-world.app -- --reagent
+	clj -A:new figwheel-main hello-world-app -- --reagent
 
 #### Using lein
 
 Make sure you have the
 [latest version of Leiningen installed](https://github.com/technomancy/leiningen#installation).
 
-    lein new figwheel-main hello-world.app -- --reagent
+    lein new figwheel-main hello-world-app -- --reagent
 
 ### Options
 
@@ -79,9 +79,9 @@ to the generated ClojureScript code.
 
 Examples:
 
-	lein new figwheel-main hello-world.app -- --react +deps
+	lein new figwheel-main hello-world-app -- --react +deps
 
-    clj -A:new figwheel-main hello-world.app -- --react +bare-index +lein
+    clj -A:new figwheel-main hello-world-app -- --react +bare-index +lein
 
 # Compiling the generated project
 
