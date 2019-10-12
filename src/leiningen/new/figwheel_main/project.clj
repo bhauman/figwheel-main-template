@@ -7,7 +7,7 @@
   :min-lein-version "2.7.1"
 
   :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.10.339"]{{#react?}}
+                 [org.clojure/clojurescript "1.10.520"]{{#react?}}
                  [cljsjs/react "16.4.1-0"]
                  [cljsjs/react-dom "16.4.1-0"]
                  [cljsjs/create-react-class "15.6.3-1"]
@@ -27,7 +27,7 @@
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]
             "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "{{test-runner-ns}}"]}
 
-  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.1.9"]{{^windows?}}
+  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.2.3"]{{^windows?}}
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]{{/windows?}}]
                    {{#deps?}}:resource-paths ["target"]
                    ;; need to add the compiled assets to the :clean-targets
