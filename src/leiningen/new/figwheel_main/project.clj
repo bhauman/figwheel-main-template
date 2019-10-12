@@ -25,7 +25,7 @@
   :aliases {"fig"       [{{^windows?}}"trampoline" {{/windows?}}"run" "-m" "figwheel.main"]
             "fig:build" [{{^windows?}}"trampoline" {{/windows?}}"run" "-m" "figwheel.main" "-b" "dev" "-r"]
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]
-            "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" {{test-runner-ns}}]}
+            "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "{{test-runner-ns}}"]}
 
   :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.1.9"]{{^windows?}}
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]{{/windows?}}]
