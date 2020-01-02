@@ -28,7 +28,7 @@
 (defn hello-world [state]
   (sab/html [:div
              [:h1 (:text @state)]
-             [:h3 "Edit this in src/{{nested-dirs}}.cljs and watch it change!"]]))
+             [:h3 "Edit this in src/{{main-file-path}}.cljs and watch it change!"]]))
 
 (defn mount [el]
   (js/ReactDOM.render (hello-world app-state) el))
@@ -41,14 +41,14 @@
          (sab/html
           [:div
            [:h1 (:text data)]
-           [:h3 "Edit this in src/{{nested-dirs}}.cljs and watch it change!"]]))))
+           [:h3 "Edit this in src/{{main-file-path}}.cljs and watch it change!"]]))))
    app-state
    {:target el}))
 {{/om?}}{{#reagent?}}
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/{{nested-dirs}}.cljs and watch it change!"]])
+   [:h3 "Edit this in src/{{main-file-path}}.cljs and watch it change!"]])
 
 (defn mount [el]
   (reagent/render-component [hello-world] el))
@@ -56,7 +56,7 @@
 (rum/defc hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/{{nested-dirs}}.cljs and watch it change!"]])
+   [:h3 "Edit this in src/{{main-file-path}}.cljs and watch it change!"]])
 
 (defn mount [el]
   (rum/mount (hello-world) el))
