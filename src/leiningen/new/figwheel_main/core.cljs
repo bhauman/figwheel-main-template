@@ -71,7 +71,7 @@
 ;; this is particularly helpful for testing this ns without launching the app
 (mount-app-element){{/framework?}}
 
-;; specify reload hook with ^;after-load metadata
+;; specify reload hook with ^:after-load metadata
 (defn ^:after-load on-reload []{{#framework?}}
   (mount-app-element){{/framework?}}
   ;; optionally touch your app-state to force rerendering depending on
