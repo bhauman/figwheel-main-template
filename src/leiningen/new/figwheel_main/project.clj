@@ -8,17 +8,17 @@
 
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.520"]{{#react?}}
-                 [cljsjs/react "16.4.1-0"]
-                 [cljsjs/react-dom "16.4.1-0"]
+                 [cljsjs/react "16.8.6-0"]
+                 [cljsjs/react-dom "16.8.6-0"]
                  [cljsjs/create-react-class "15.6.3-1"]
                  [sablono "0.8.4"]{{/react?}}{{#om?}}
-                 [cljsjs/react "16.4.1-0"]
-                 [cljsjs/react-dom "16.4.1-0"]
+                 [cljsjs/react "16.8.6-0"]
+                 [cljsjs/react-dom "16.8.6-0"]
                  [cljsjs/create-react-class "15.6.3-1"]
                  [sablono "0.8.4"]
                  [org.omcljs/om "1.0.0-beta4"]{{/om?}}{{#reagent?}}
                  [reagent "0.8.1"]{{/reagent?}}{{#rum?}}
-                 [rum "0.11.2"]{{/rum?}}]
+                 [rum "0.11.5"]{{/rum?}}]
 
   :source-paths ["src"]
 
