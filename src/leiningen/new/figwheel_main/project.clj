@@ -18,7 +18,7 @@
                  [sablono "0.8.4"]
                  [org.omcljs/om "1.0.0-beta4"]{{/om?}}{{#reagent?}}
                  [reagent "0.8.1"]{{/reagent?}}{{#rum?}}
-                 [rum "0.11.2"]{{/rum?}}]
+                 [rum "0.11.5"]{{/rum?}}]
 
   :source-paths ["src"]
 
