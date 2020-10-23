@@ -10,13 +10,13 @@ tooling.
 Already an expert? Can't stand to read more information? Assuming you have [lein](https://github.com/technomancy/leiningen) or [clj-new](https://github.com/seancorfield/clj-new) installed, you can use one of the following commands:
 
 ```shell
-clj -A:new figwheel-main hello-world.core -- --reagent # or --rum, --om, --react or nothing
+clj -A:new figwheel-main hello-world.core -- +npm-bundle --reagent # or --rum, --react or nothing
 ```
 
 or
 
 ```shell
-lein new figwheel-main hello-world.core -- --reagent # or --rum, --om, --react or nothing
+lein new figwheel-main hello-world.core -- +npm-bundle --reagent # or --rum, --react or nothing
 ```
 
 ## Overview
@@ -69,6 +69,7 @@ The framework options are:
 
 The attribute options are:
 
+     +npm-bundle  which sets up a build that utilizes npm modules
      +deps        which generates a deps.edn (a default when used with clj-new)
      +lein        which generates a project.clj (a default when used with lein)
      +bare-index  which generates an index without any annoyingly helpful content
@@ -79,11 +80,13 @@ to the generated ClojureScript code.
 
 Examples:
 
-	lein new figwheel-main hello-world.core -- --react +deps
+	lein new figwheel-main hello-world.core -- +deps +npm-bundle --react 
 
-    clj -A:new figwheel-main hello-world.core -- --react +bare-index +lein
+    clj -A:new figwheel-main hello-world.core -- +bare-index +lein --react 
 
 # Compiling the generated project
+
+> When using `+npm-bundle` you must run `npm install` before building your project
 
 ### With a CLI tools project
 

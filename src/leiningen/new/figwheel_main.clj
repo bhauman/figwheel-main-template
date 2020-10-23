@@ -8,11 +8,11 @@
 
 (def render (renderer "figwheel-main"))
 
-(def supported-frameworks ["om" "reagent" "rum" "react"])
+(def supported-frameworks ["reagent" "rum" "react"])
 
 (def framework-opts (set (map #(str "--" %) supported-frameworks)))
 
-(def supported-attributes #{"lein" "bare-index" "deps"})
+(def supported-attributes #{"lein" "bare-index" "deps" "npm-bundle"})
 
 (def attribute-opts (set (map #(str "+" %) supported-attributes)))
 
@@ -75,26 +75,32 @@
 (defn opts-data [n {:keys [framework attributes]}]
   (let [to-att #(keyword (str (name %) "?"))
         main-ns (multi-segment (sanitize-ns n))
-        test-run-ns (test-runner-ns main-ns)]
-    (cond-> {:raw-name n
-             :name (project-name n)
-             :namespace main-ns
-             :test-runner-ns test-run-ns
-             :test-runner-dirs (name-to-path test-run-ns)
-             :lein? (not (in-clj?))
-             :deps? (in-clj?)
-             :windows? (windows?)
-             :main-file-path (-> (name-to-path main-ns)
-                                 (string/replace "\\" "/"))
-             :nested-dirs (name-to-path main-ns)}
-      framework
-      (->
-       (assoc (to-att :framework) true)
-       (assoc (to-att framework) true))
-      (not-empty attributes) (#(reduce
-                                (fn [accum att]
-                                  (assoc accum (to-att att) true))
-                                % attributes)))))
+        test-run-ns (test-runner-ns main-ns)
+        inclj (in-clj?)
+        data (cond-> {:raw-name n
+                      :name (project-name n)
+                      :namespace main-ns
+                      :test-runner-ns test-run-ns
+                      :test-runner-dirs (name-to-path test-run-ns)
+                      :lein? (not inclj)
+                      :deps? (boolean inclj)
+                      :windows? (windows?)
+                      :main-file-path (-> (name-to-path main-ns)
+                                          (string/replace "\\" "/"))
+                      :nested-dirs (name-to-path main-ns)}
+               framework
+               (->
+                (assoc (to-att :framework) true)
+                (assoc (to-att framework) true))
+               (not-empty attributes) (#(reduce
+                                         (fn [accum att]
+                                           (assoc accum (to-att att) true))
+                                         % attributes)))]
+    (cond-> data
+      (and (or (:react? data)
+               (:reagent? data))
+           (:npm-bundle? data))
+      (assoc :reactdep? true))))
 
 (defn figwheel-main
   "Takes a name and possibly a single framework option with the form
@@ -144,6 +150,8 @@
                     (conj ["project.clj" (render "project.clj" data)])
                     (:deps? data)
                     (conj ["deps.edn" (render "deps.edn" data)])
+                    (:npm-bundle? data)
+                    (conj ["package.json" (render "package.json" data)])
                     (and (not (:bare-index? data))
                          (not (:framework? data)))
                     (conj ["resources/public/index.html" (render "index.html" data)])
@@ -151,7 +159,11 @@
                         (:framework? data))
                     (conj ["resources/public/index.html" (render "bare-index.html" data)]))]
         (main/info (format (str "Generating fresh figwheel-main project.\n"
-                                "   -->  To get started: Change into the '%s' directory and run '%s'\n")
+                                "  To get started:\n"
+                                "  -->  Change into the '%s' directory\n"
+                                (if (:npm-bundle? data)
+                                  "  -->  IMPORTANT: run 'npm install'\n")
+                                "  -->  Start build with '%s'\n")
                            (:name data)
                            (if (:deps? data)
                              "clojure -A:fig:build"
