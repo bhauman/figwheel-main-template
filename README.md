@@ -10,7 +10,7 @@ tooling.
 Already an expert? Can't stand to read more information? Assuming you have [lein](https://github.com/technomancy/leiningen) or [clj-new](https://github.com/seancorfield/clj-new) installed, you can use one of the following commands:
 
 ```shell
-clj -A:new figwheel-main hello-world.core -- +npm-bundle --reagent # or --rum, --react or nothing
+clj -X:new create :template figwheel-main :name yourname/hello-world :args '["+npm-bundle","--reagent"]' # or --rum, --react or nothing
 ```
 
 or
@@ -38,7 +38,7 @@ and are running the latest version.
 
 Also, ensure you have installed [clj-new](https://github.com/seancorfield/clj-new) as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
 	
-	clj -A:new figwheel-main hello-world.core -- --reagent
+	clj -X:new create :template figwheel-main :name yourname/hello-world :args '["--reagent"]'
 
 #### Using lein
 
@@ -82,7 +82,7 @@ Examples:
 
 	lein new figwheel-main hello-world.core -- +deps +npm-bundle --react 
 
-    clj -A:new figwheel-main hello-world.core -- +bare-index +lein --react 
+    clj -X:new create :template figwheel-main :name yourname/hello-world :args '["+bare-index","+lein","--react"]'
 
 # Compiling the generated project
 
