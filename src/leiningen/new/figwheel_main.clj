@@ -166,7 +166,7 @@
                                 "  -->  Start build with '%s'\n")
                            (:name data)
                            (if (:deps? data)
-                             "clojure -A:fig:build"
+                             "clojure -M:fig:build"
                              "lein fig:build")))
         (apply ->files data files)
         ;; ensure target directory
