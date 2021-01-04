@@ -2,9 +2,9 @@
         org.clojure/clojurescript {:mvn/version "1.10.773"}{{#react?}}{{^npm-bundle?}}
         cljsjs/react {:mvn/version "16.4.1-0"}
         cljsjs/react-dom {:mvn/version "16.4.1-0"}{{/npm-bundle?}}
-        sablono {:mvn/version "0.8.6"}{{/react?}}{{#reagent?}}
-        reagent {:mvn/version "0.10.0" {{#npm-bundle?}}:exclusions [cljsjs/react cljsjs/react-dom cljsjs/react-dom-server]{{/npm-bundle?}}}{{/reagent?}}{{#rum?}}
-        rum {:mvn/version "0.12.3"}{{/rum?}}}
+        sablono/sablono {:mvn/version "0.8.6"}{{/react?}}{{#reagent?}}
+        reagent/reagent {:mvn/version "0.10.0" {{#npm-bundle?}}:exclusions [cljsjs/react cljsjs/react-dom cljsjs/react-dom-server]{{/npm-bundle?}}}{{/reagent?}}{{#rum?}}
+        rum/rum {:mvn/version "0.12.3"}{{/rum?}}}
  :paths ["src" "resources"]
  :aliases {:fig {:extra-deps
                   {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
