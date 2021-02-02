@@ -10,7 +10,7 @@ tooling.
 Already an expert? Can't stand to read more information? Assuming you have [lein](https://github.com/technomancy/leiningen) or [clj-new](https://github.com/seancorfield/clj-new) installed, you can use one of the following commands:
 
 ```shell
-clj -X:new create :template figwheel-main :name yourname/hello-world :args '["+npm-bundle","--reagent"]' # or --rum, --react or nothing
+clj -X:new clj-new/create :template figwheel-main :name yourname/hello-world :args '["+npm-bundle","--reagent"]' # or --rum, --react or nothing
 ```
 
 or
