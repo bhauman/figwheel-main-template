@@ -36,9 +36,9 @@ Make sure you have
 [installed the Clojure CLI tools](https://clojure.org/guides/getting_started#_clojure_installer_and_cli_tools)
 and are running the latest version.
 
-Also, ensure you have installed [clj-new](https://github.com/seancorfield/clj-new) as detailed [here](https://github.com/seancorfield/clj-new#getting-started) 
-	
-	clj -X:new create :template figwheel-main :name yourname/hello-world :args '["--reagent"]'
+Also, ensure you have installed [clj-new](https://github.com/seancorfield/clj-new) as detailed [here](https://github.com/seancorfield/clj-new#getting-started). The following creates a project subfolder "hello-world" and a project using "yourname" as root namespace:
+
+	clj -X:new clj-new/create :template figwheel-main :name yourname/hello-world :args '["--reagent"]'
 
 #### Using lein
 
@@ -80,7 +80,7 @@ to the generated ClojureScript code.
 
 Examples:
 
-	lein new figwheel-main hello-world.core -- +deps +npm-bundle --react 
+	lein new figwheel-main hello-world.core -- +deps +npm-bundle --react
 
     clj -X:new create :template figwheel-main :name yourname/hello-world :args '["+bare-index","+lein","--react"]'
 
@@ -94,7 +94,7 @@ To get an interactive development environment change into the project
 root (the directory just created) and execute:
 
     clojure -A:fig:build
-	
+
 After the compilation process is complete, and a browser has popped
 open the compiled project in your browser, you will get a ClojureScript
 REPL prompt that is connected to the browser.
@@ -105,9 +105,9 @@ An easy way to verify this is:
 
 and you should see an alert in the browser window.
 
-You can also supply arguments to `figwheel.main` like so:
+You can also supply arguments to `figwheel.main` like so (this is equivalent to `clojure -A:fig:build` above):
 
-	clojure -A:fig -b dev -r
+	clojure -A:fig -m figwheel.main -b dev -r
 
 To clean all compiled files:
 
@@ -117,17 +117,17 @@ To create a production build:
 
 	rm -rf target/public
     clojure -A:fig:min
-	
+
 ### With Leiningen based project
 
 To get an interactive development environment change into the project
 root (the directory just created) and execute:
 
     lein fig:build
-	
+
 After the compilation process is complete, and a browser has popped
 open the compiled project in your browser, you will get a ClojureScript
-REPL prompt that is connected to the browser.	
+REPL prompt that is connected to the browser.
 
 An easy way to verify this is:
 
@@ -157,7 +157,7 @@ that are updated live with each file change if you open a tab to
 You can run your tests from the command line with:
 
     clj -A:fig:test
-	
+
 or with `lein`:
 
     lein fig:test
@@ -166,7 +166,7 @@ or with `lein`:
 
 See the [`figwheel.main` documentation](https://figwheel.org)
 
-Hit me up on the [Clojurians Slack](http://clojurians.net/) on the `#figwheel-main` channel. 
+Hit me up on the [Clojurians Slack](http://clojurians.net/) on the `#figwheel-main` channel.
 
 ## License
 
