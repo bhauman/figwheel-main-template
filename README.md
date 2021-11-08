@@ -93,7 +93,7 @@ Examples:
 To get an interactive development environment change into the project
 root (the directory just created) and execute:
 
-    clojure -A:fig:build
+    clojure -M:fig:build
 
 After the compilation process is complete, and a browser has popped
 open the compiled project in your browser, you will get a ClojureScript
