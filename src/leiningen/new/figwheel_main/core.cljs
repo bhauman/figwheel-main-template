@@ -21,7 +21,7 @@
 (defn hello-world [state]
   (sab/html [:div
              [:h1 (:text @state)]
-             [:h3 "Edit this in src/{{nested-dirs}}.cljs and watch it change!"]]))
+             [:h3 "Edit this in src/{{main-file-path}}.cljs and watch it change!"]]))
 
 (defn mount [el]
   (react-dom/render (hello-world app-state) el))
@@ -29,7 +29,7 @@
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/{{nested-dirs}}.cljs and watch it change!"]])
+   [:h3 "Edit this in src/{{main-file-path}}.cljs and watch it change!"]])
 
 (defn mount [el]
   (rdom/render [hello-world] el))
@@ -37,7 +37,7 @@
 (rum/defc hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/{{nested-dirs}}.cljs and watch it change!"]])
+   [:h3 "Edit this in src/{{main-file-path}}.cljs and watch it change!"]])
 
 (defn mount [el]
   (rum/mount (hello-world) el))
