@@ -11,3 +11,6 @@ pom.xml
 .nrepl-port
 .cpcache/
 .rebel_readline_history
+resources/public/cljs-out/
+.clj-kondo/.cache
+{{#npm-bundle?}}node_modules/{{/npm-bundle?}}
