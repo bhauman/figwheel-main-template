@@ -65,7 +65,6 @@ The framework options are:
      --react   which adds a minimal React/Sablono application in core.cljs
      --reagent which adds a minimal Reagent application in core.cljs
      --rum     which adds a minimal Rum application in core.cljs
-     --om      which adds a minimal Om application in core.cljs
 
 The attribute options are:
 
