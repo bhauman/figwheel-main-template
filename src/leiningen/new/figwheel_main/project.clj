@@ -12,7 +12,7 @@
                  [cljsjs/react-dom "16.4.1-0"]{{/npm-bundle?}}
                  [sablono "0.8.6"]{{/react?}}{{#reagent?}}
                  [reagent "0.10.0" {{#npm-bundle?}} :exclusions [cljsjs/react cljsjs/react-dom cljsjs/react-dom-server]{{/npm-bundle?}}]{{/reagent?}}{{#rum?}}
-                 [rum "0.12.3"]{{/rum?}}]
+                 [rum "0.12.9"]{{/rum?}}]
 
   :source-paths ["src"]
 
