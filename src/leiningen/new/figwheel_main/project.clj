@@ -22,7 +22,7 @@
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]{{^rum?}}
             "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "{{test-runner-ns}}"]{{/rum?}}}
 
-  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.2.16"]
+  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.2.17"]
                                   [org.slf4j/slf4j-nop "1.7.30"]{{^windows?}}
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]{{/windows?}}]
                    {{#deps?}}:clean-targets ^{:protect false} [:target-path "resources/public/cljs-out"]{{/deps?}}
