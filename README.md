@@ -106,7 +106,7 @@ and you should see an alert in the browser window.
 
 You can also supply arguments to `figwheel.main` like so (this is equivalent to `clojure -A:fig:build` above):
 
-	clojure -A:fig -m figwheel.main -b dev -r
+	clojure -M:fig -m figwheel.main -b dev -r
 
 To clean all compiled files:
 
@@ -115,7 +115,7 @@ To clean all compiled files:
 To create a production build:
 
 	rm -rf target/public
-    clojure -A:fig:min
+    clojure -M:fig:min
 
 ### With Leiningen based project
 
@@ -155,7 +155,7 @@ that are updated live with each file change if you open a tab to
 
 You can run your tests from the command line with:
 
-    clj -A:fig:test
+    clj -M:fig:test
 
 or with `lein`:
 
