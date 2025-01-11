@@ -1,17 +1,17 @@
-{:deps {org.clojure/clojure {:mvn/version "1.10.0"}
-        org.clojure/clojurescript {:mvn/version "1.11.4"}{{#react?}}{{^npm-bundle?}}
+{:deps {org.clojure/clojure {:mvn/version "1.12.0"}
+        org.clojure/clojurescript {:mvn/version "1.11.132"}
+        org.clojure/data.json {:mvn/version "2.5.1"}{{#react?}}{{^npm-bundle?}}
         cljsjs/react {:mvn/version "17.0.2-0"}
         cljsjs/react-dom {:mvn/version "17.0.2-0"}{{/npm-bundle?}}
         sablono/sablono {:mvn/version "0.8.6"}{{/react?}}{{#reagent?}}{{^npm-bundle?}}
         cljsjs/react {:mvn/version "17.0.2-0"}
         cljsjs/react-dom {:mvn/version "17.0.2-0"}{{/npm-bundle?}}
-        reagent/reagent {:mvn/version "1.1.1" {{#npm-bundle?}}:exclusions [cljsjs/react cljsjs/react-dom cljsjs/react-dom-server]{{/npm-bundle?}}}{{/reagent?}}{{#rum?}}
-        rum/rum {:mvn/version "0.12.9"}{{/rum?}}}
+        reagent/reagent {:mvn/version "1.2.0" {{#npm-bundle?}}:exclusions [cljsjs/react cljsjs/react-dom cljsjs/react-dom-server]{{/npm-bundle?}}}{{/reagent?}}{{#rum?}}
+        rum/rum {:mvn/version "0.12.11"}{{/rum?}}}
  :paths ["src" "resources"]
  :aliases {:fig {:extra-deps
                  {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
-                  org.slf4j/slf4j-nop {:mvn/version "1.7.30"}
-                  com.bhauman/figwheel-main {:mvn/version "0.2.17"}}
+                  com.bhauman/figwheel-main {:mvn/version "0.2.19"}}
                  :extra-paths ["target" "test"]}
            :build {:main-opts ["-m" "figwheel.main" "-b" "dev" "-r"]}
            :min   {:main-opts ["-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]}{{^rum?}}
