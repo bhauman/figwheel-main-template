@@ -14,5 +14,6 @@
                   com.bhauman/figwheel-main {:mvn/version "0.2.19"}}
                  :extra-paths ["target" "test"]}
            :build {:main-opts ["-m" "figwheel.main" "-b" "dev" "-r"]}
+           :clean {:main-opts ["-m" "figwheel.main" "--clean" "dev"]}
            :min   {:main-opts ["-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]}{{^rum?}}
            :test  {:main-opts ["-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "{{test-runner-ns}}"]}{{/rum?}}}}

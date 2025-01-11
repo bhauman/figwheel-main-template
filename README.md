@@ -10,13 +10,13 @@ tooling.
 Already an expert? Can't stand to read more information? Assuming you have [lein](https://github.com/technomancy/leiningen) or [clj-new](https://github.com/seancorfield/clj-new) installed, you can use one of the following commands:
 
 ```shell
-clj -Tclj-new create :template figwheel-main :name yourname/hello-world :args '["+npm-bundle","--reagent"]' # or --rum, --react or nothing
+clj -Tclj-new create :template figwheel-main :name yourname/hello-world :args '["+lein", "--react"]' # or --rum, --reagent or nothing
 ```
 
 or
 
 ```shell
-lein new figwheel-main hello-world.core -- +npm-bundle --reagent # or --rum, --react or nothing
+lein new figwheel-main hello-world.core -- +deps --react # or --rum, --reagent or nothing
 ```
 
 ## Overview
@@ -38,14 +38,15 @@ and are running the latest version.
 
 Also, ensure you have installed [clj-new](https://github.com/seancorfield/clj-new) as detailed [here](https://github.com/seancorfield/clj-new#getting-started). The following creates a project subfolder "hello-world" and a project using "yourname" as root namespace:
 
-	clj -X:new clj-new/create :template figwheel-main :name yourname/hello-world :args '["--reagent"]'
+	clj -Tclj-new create :template figwheel-main :name yourname/hello-world :args '["+lein", "--react"]'
+
 
 #### Using lein
 
 Make sure you have the
 [latest version of Leiningen installed](https://github.com/technomancy/leiningen#installation).
 
-    lein new figwheel-main hello-world.core -- --reagent
+    lein new figwheel-main hello-world.core -- +deps --react
 
 ### Options
 
@@ -79,9 +80,9 @@ to the generated ClojureScript code.
 
 Examples:
 
-	lein new figwheel-main hello-world.core -- +deps +npm-bundle --react
+    lein new figwheel-main hello-world.core -- +deps --react
 
-    clj -X:new create :template figwheel-main :name yourname/hello-world :args '["+bare-index","+lein","--react"]'
+    clj -Xclj-new create :template figwheel-main :name yourname/hello-world :args '["+bare-index","+lein","--react"]'
 
 # Compiling the generated project
 
@@ -106,7 +107,7 @@ and you should see an alert in the browser window.
 
 You can also supply arguments to `figwheel.main` like so (this is equivalent to `clojure -A:fig:build` above):
 
-	clojure -M:fig -m figwheel.main -b dev -r
+    clojure -M:fig -m figwheel.main -b dev -r
 
 To clean all compiled files:
 
@@ -114,7 +115,7 @@ To clean all compiled files:
 
 To create a production build:
 
-	rm -rf target/public
+    rm -rf target/public
     clojure -M:fig:min
 
 ### With Leiningen based project
@@ -145,7 +146,7 @@ To clean all compiled files:
 To create a production build:
 
 	lein clean
-    lein fig:min
+   	lein fig:min
 
 # Testing
 

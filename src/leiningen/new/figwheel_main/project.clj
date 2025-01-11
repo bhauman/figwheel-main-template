@@ -20,6 +20,7 @@
   :source-paths ["src"]
 
   :aliases {"fig:build" [{{^windows?}}"trampoline" {{/windows?}}"run" "-m" "figwheel.main" "-b" "dev" "-r"]
+            "fig:clean" ["run" "-m" "figwheel.main" "--clean" "dev"]
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]{{^rum?}}
             "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "{{test-runner-ns}}"]{{/rum?}}}
 
