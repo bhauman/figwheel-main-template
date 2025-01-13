@@ -9,11 +9,11 @@
   :dependencies [[org.clojure/clojure "1.12.0"]
                  [org.clojure/clojurescript "1.11.132"]
                  [org.clojure/data.json "2.5.1"]{{#react?}}
-                 {{^npm-bundle?}}[cljsjs/react "17.0.2-0"]
-                 [cljsjs/react-dom "17.0.2-0"]{{/npm-bundle?}}
+                 {{^npm-bundle?}}[cljsjs/react "18.0.0-rc.0-0"]
+                 [cljsjs/react-dom "18.0.0-rc.0-0"]{{/npm-bundle?}}
                  [sablono "0.8.6" :exclusions [com.cognitect/transit-clj com.cognitect/transit-java]]{{/react?}}{{#reagent?}}
-                 {{^npm-bundle?}}[cljsjs/react "17.0.2-0"]
-                 [cljsjs/react-dom "17.0.2-0"]{{/npm-bundle?}}
+                 {{^npm-bundle?}}[cljsjs/react "18.0.0-rc.0-0"]
+                 [cljsjs/react-dom "18.0.0-rc.0-0"]{{/npm-bundle?}}
                  [reagent "1.2.0" {{#npm-bundle?}} :exclusions [cljsjs/react cljsjs/react-dom cljsjs/react-dom-server]{{/npm-bundle?}}]{{/reagent?}}{{#rum?}}
                  [rum "0.12.11"]{{/rum?}}]
 
@@ -24,10 +24,11 @@
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]{{^rum?}}
             "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "{{test-runner-ns}}"]{{/rum?}}}
 
-  :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.2.20"]{{^windows?}}
+  :profiles {:dev {:dependencies [[org.slf4j/slf4j-nop "2.0.3"]
+                                  [com.bhauman/figwheel-main "0.2.20"]{{^windows?}}
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]{{/windows?}}]
+                   :resource-paths ["target"]
                    {{#deps?}}:clean-targets ^{:protect false} [:target-path "resources/public/cljs-out"]{{/deps?}}
-                   {{^deps?}}:resource-paths ["target"]
-                   ;; need to add the compiled assets to the :clean-targets
+                   {{^deps?}};; need to add the compiled assets to the :clean-targets
                    :clean-targets ^{:protect false} ["target"]{{/deps?}}}})
 
