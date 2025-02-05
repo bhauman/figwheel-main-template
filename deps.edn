@@ -1,0 +1,7 @@
+{:deps {}
+ :aliases {:neil {:project {:name figwheel-main/lein-template 
+                            :version "0.2.23"}}
+           :build {:deps {io.github.clojure/tools.build {:git/tag "v0.10.6"
+                                                         :git/sha "52cf7d6"}
+                          slipset/deps-deploy {:mvn/version "0.2.2"}}
+                   :ns-default build}}}
