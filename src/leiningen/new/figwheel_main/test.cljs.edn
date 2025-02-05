@@ -3,8 +3,15 @@
   ;; launch the application
   :open-url "http://[[server-hostname]]:[[server-port]]/test.html"
   {{#npm-bundle?}}:auto-bundle :webpack{{/npm-bundle?}}
-  ;; uncomment to launch tests in a headless environment
-  ;; you will have to figure out the path to chrome on your system
-  ;; :launch-js ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" "--headless" "--disable-gpu" "--repl" :open-url]
+
+  ;; uncomment to launch tests in a headless Firefox environment
+  ;; you will have to figure out the path to firefox on your system
+  ;; :launch-js ["/Applications/Firefox.app/Contents/MacOS/firefox" "--headless" "--profile" "/tmp/headless-firefox-cljs-testing-profile" "--no-remote" "--url" :open-url]
+
+  ;; Chrome
+  ;; folks seem to have issues launching chrome different
+  ;; environments, these flags seem to help, your milage may vary
+  ;; :launch-js ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" "--headless" "--disable-gpu" "--disable-dev-shm" "--remote-debugging-port=9222" "--repl" :open-url]
+
   }
 {:main {{test-runner-ns}}}
