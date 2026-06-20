@@ -1,4 +1,6 @@
 ^{
+  ;; different port than dev
+  :ring-server-options {:port 9505}
   ;; use an alternative landing page for the tests so that we don't
   ;; launch the application
   :open-url "http://[[config-hostname]]:[[server-port]]/test.html"
