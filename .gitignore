@@ -5,6 +5,7 @@ pom.xml
 pom.xml.asc
 *.jar
 *.class
+*~
 /.lein-*
 /.nrepl-port
 hello_world
@@ -12,3 +13,4 @@ hello-world
 \.\#*
 \#*
 .clj-kondo/.cache
+.DS_Store
